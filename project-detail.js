@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const header = document.querySelector('.detail-header');
         const prompt = document.createElement('p');
         prompt.classList.add('view-prompt');
-        prompt.textContent = '(Click to View)';
+        prompt.textContent = '(Click or Tap to View)';
         header.appendChild(prompt);
     }
     const mediaFeed = document.querySelector('.media-feed');
