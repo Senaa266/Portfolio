@@ -47,12 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update the active state in the menu
         menuItems.forEach(item => item.classList.remove('active'));
         targetMenuItem.classList.add('active');
-
-        if (!isMobile) {
-            // On desktop, move the entire image column to bring the target group into view
-            const offsetTop = targetImageGroup.offsetTop;
-            imageColumn.style.transform = `translateY(-${offsetTop}px)`;
-        }
     }
 
     // Function to handle the full auto-scroll sequence
