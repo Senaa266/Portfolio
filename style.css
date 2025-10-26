@@ -40,6 +40,9 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden; /* For the marquee */
+    margin-top: -5.5rem; /* Pull the section up to cover the body's top padding */
+    padding-top: 5.5rem; /* Add padding inside to re-center the content */
+    box-sizing: border-box; /* Ensure padding is included in the 100vh height */
 }
 
 .hero-section.hide-cursor {
@@ -75,7 +78,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
 }
 
 .nav-logo {
@@ -141,7 +144,7 @@ body {
 
 @media (max-width: 900px) {
     body {
-        padding-top: 9rem; /* Adjust padding for taller mobile nav */
+        padding-top: 2rem; /* Further reduced top padding for mobile */
     }
 }
 
@@ -156,7 +159,7 @@ body {
 .hero-headline {
     position: relative; /* Create a positioning context for the intro text */
     display: inline-block; /* Allow the container to fit its content */
-    margin-bottom: 2rem; /* Add reasonable space below the name */
+    margin-bottom: 1rem; /* Add reasonable space below the name */
 
 }
 
@@ -164,18 +167,18 @@ body {
     position: absolute; /* Position relative to hero-headline */
     top: 0;
     left: 0;
-    transform: translate(-25%, -80%); /* Pushed further up and left */
+    transform: translate(-25%, -80%);
     font-size: 1.9rem; /* Make it a bit bigger */
     white-space: nowrap; /* Prevent "Hi, my name is" from wrapping */
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero-tagline {
     font-size: 1.5rem; /* Make it a bit bigger */
     color: #fff; /* Make it white */
     /* It already uses the 'Syne' font from the body style */
-    margin-top: 2rem;
+    margin-top: 3rem;
     white-space: nowrap; /* Prevent tagline from wrapping */
 }
 
@@ -185,7 +188,7 @@ body {
     font-weight: 400; /* Cursive fonts often don't need heavy weights */
     color: #fff; /* White text */
     margin: 0;
-    margin-top: 3rem;
+    margin-top: 2rem;
     line-height: 1;
     /* Reduced white glow */
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2);
@@ -240,6 +243,8 @@ body {
     height: 100%;
     transition: transform 0.8s, height 0.8s; /* Animate height changes */
     transform-style: preserve-3d;
+    display: grid; /* Use grid to manage card faces */
+    grid-template-areas: "card"; /* Define a single area for both faces */
 }
 
 /* Apply flip on hover ONLY for devices that support hover (desktops) */
@@ -255,10 +260,7 @@ body {
 }
 
 .card-front, .card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    grid-area: card; /* Assign both faces to the same grid area */
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
     background-color: #fff;
@@ -631,43 +633,43 @@ body {
 }
 
 .media-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Made description text smaller */
     color: var(--bg-color);
     opacity: 0.8;
     text-align: center;
-    margin-bottom: 0.5rem; /* Further reduced space between text and media */
+    margin-bottom: 0.1rem; /* Added a bit more space for readability */
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .detail-header h1 {
-    font-size: 3.5rem;
-    margin: 5rem 0 0; /* Pushes the title down more */
+    font-size: 2rem; /* Made title even smaller */
+    margin: 3rem 0 0; /* Reduced top margin */
 }
 
 .detail-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 4rem;
+    padding: 0 4rem 4rem; /* Removed top padding to reduce gap */
 }
 
 /* --- UNIFIED MEDIA FEED STYLES --- */
 .media-feed {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem 2.5rem; /* 5rem for rows (top/bottom), 2.5rem for columns (left/right) */
+    grid-template-columns: repeat(2, 1fr); /* Default two-column layout for desktop */
+    gap: 5rem 2.5rem; /* Restore original desktop gap */
     align-items: center; /* Vertically center items in their grid row */
 }
 
 .media-card-container {
-    height: 80vh; /* This is the key change, applying the fixed height you liked */
+    height: auto; /* Let content determine the height */
     width: 100%;
-    max-width: 1000px; /* Prevent it from getting too wide on large screens */
+    max-width: 70%; /* Made images even smaller */
     display: flex;
     flex-direction: column; /* Stack description on top of the card */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to the top to remove the large gap */
     margin: 0 auto; /* Center the container within the grid cell */
 }
 
@@ -695,7 +697,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain; /* This ensures the full media is visible inside the container */
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .image-group-container {
@@ -722,7 +724,7 @@ body {
 }
 
 /* Make grouped items span the full width of the grid */
-.media-card-container:has(.media-card[data-media-type="group"]) {
+.media-card[data-media-type="group"] {
     grid-column: 1 / -1;
 }
 
@@ -802,6 +804,7 @@ body {
     .main-nav { /* Adjust for smaller screens */
         padding: 1.5rem;
         flex-direction: column;
+        align-items: center; /* This will center the logo */
         gap: 1.5rem;
         border-bottom: none;
     }
@@ -809,6 +812,7 @@ body {
         margin-right: 0;
     }
     .main-nav ul {
+        justify-content: center; /* Center the nav links */
         gap: 2rem;
     }
     .main-nav a {
@@ -819,13 +823,21 @@ body {
     }
 
     .hero-headline {
-        flex-direction: column; /* Stack intro and name on mobile */
+        display: flex; /* Ensure flex properties apply */
+        flex-direction: column;
         align-items: center;
         gap: 0.5rem;
     }
 
     .hero-name {
         font-size: 15vw;
+    }
+    
+    .hero-intro {
+        position: static; /* Remove absolute positioning on mobile */
+        transform: none;  /* Reset the transform */
+        text-align: center;
+        font-size: 1.5rem; /* Adjust font size for mobile */
     }
 
     /* --- About Section Responsive --- */
@@ -834,33 +846,114 @@ body {
         gap: 3rem;
     }
 
+    .card {
+        min-height: auto; /* Allow card to shrink on mobile */
+    }
+
+    .card-front, .card-back {
+        padding: 1rem; /* Further reduce padding for more content space */
+    }
+
+    .about-title {
+        font-size: 1rem; /* Smaller title on mobile */
+    }
+
+    .about-column p, .card-back ul {
+        font-size: 0.9rem; /* Smaller paragraph/list text to fit more words */
+        line-height: 1.6;
+    }
+
+    /* --- Fix for overlapping back button on mobile --- */
+    .back-button {
+        top: 3.5rem; /* Move button up */
+        left: 1.5rem;  /* Align with page padding */
+    }
+
+    /* --- Project Detail Page Responsive --- */
+    .detail-header {
+        padding: 5rem 1.5rem 1rem;
+    }
+    .detail-header h1 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+    }
+    .media-feed {
+        grid-template-columns: 1fr; /* Switch to single column on mobile */
+        gap: 3rem;
+    }
+    .media-card-container {
+        height: auto; /* Let content define height on mobile */
+        min-height: 50vh;
+    }
+
+    .card-back-title {
+        font-size: 1.2rem; /* Smaller back title */
+    }
+
     .page-content-wrapper {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
         max-width: 100%;
     }
 
     /* --- Work Section Responsive --- */
     .work-layout {
         grid-template-columns: 1fr; /* Single column */
-        gap: 3rem;
+        gap: 1rem;
+    }
+    .work-section {
+        min-height: auto; /* Remove the 100vh minimum height */
+        padding-bottom: 6rem; /* Add back some padding for spacing */
     }
     .work-menu ul {
         position: static; /* Un-stick the menu */
     }
-    .work-menu li {
-        font-size: 2rem;
+    .work-menu li, .work-menu li.active {
+        font-size: 1.5rem; /* Reduced project title size on mobile */
         text-align: center;
+        opacity: 1; /* Make all items fully visible */
+        text-shadow: none; /* Remove glow effect */
     }
-    .work-menu li::after {
-        left: 50%;
-        transform: translateX(-50%) scaleX(0);
+    .work-menu li::after, .work-menu li.active::after {
+        display: none; /* Hide the underline completely on mobile */
     }
-    /* Fix for underline on mobile */
-    .work-menu li.active::after {
-        transform: translateX(-50%) scaleX(1);
+    .work-gallery { /* Hide the empty gallery container on mobile */
+        display: none;
     }
-    .work-gallery {
-        height: 60vh; /* Adjust height for vertical view */
+    .image-column {
+        transform: none !important; /* Prevent JS from moving the column */
+    }
+    .image-group {
+        height: auto; /* Let each group have its own height */
+        margin-top: 2rem; /* Add space above the gallery when it appears */
+        display: none; /* Hide galleries by default on mobile */
+    }
+
+    .image-group.visible {
+        display: block; /* Show the gallery when it's active */
+    }
+
+    .image-carousel {
+        width: 100%; /* The container is 100% of the screen width */
+        display: flex;
+        transition: transform 0.8s ease-in-out; /* Smooth slide transition */
+        /* The overflow:hidden is on the parent .image-group */
+    }
+    .image-carousel img, .image-carousel video {
+        width: 100%; /* Each item takes up the full width of the container */
+        height: auto;
+        flex-shrink: 0; /* Prevent items from shrinking */
+        object-fit: contain;
+        border-radius: 10px;
+        background-color: #000;
+    }
+
+    /* --- Contact Section Responsive --- */
+    .contact-container h2 {
+        font-size: 2.2rem !important; /* Forcibly reduce header size on mobile */
+    }
+    .contact-container p {
+        font-size: 1.1rem !important; /* Forcibly reduce paragraph size on mobile */
+        line-height: 1.7;
     }
 }
 

@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'figma-projects': {
             title: 'Figma Projects',
             media: [
-                { mediaType: 'video', src: 'MyStuff/videos/donut_anim.mp4', backText: "This one of my donut animations. Dragging accross the page takes you to the next donut flavour with a smooth animation trick. I took inspiration from a couple of similar animations on youtube." },
-                { mediaType: 'video', src: 'MyStuff/videos/donut_select.mp4', backText: "This is one of my favourite donut animations in Figma. This one animates by clicking on the donuts." },
-                { mediaType: 'video', src: 'MyStuff/videos/sky_dev.mp4', backText: "This is a prototype for an architecture company. It's still a work in progress but my favourite thing about it is the moving image carousel!" },
-                { mediaType: 'video', src: 'MyStuff/videos/figma_res.mp4', backText: "This was my first ever Figma project. It's basically a prototype for an app for tourists looking for restaurants, tourist attractions, coffee shops and hotels in a country or city." },
+                { mediaType: 'video', src: 'MyStuff/videos/donut_anim.mp4', backText: "This is one of my donut website prototypes with a dragging animation. Took INspiration from a couple of youtube videos. " },
+                { mediaType: 'video', src: 'MyStuff/videos/donut_select.mp4', backText: "This is another one of my favourite donut animations. This one animates by clicking on the donuts." },
+                { mediaType: 'video', src: 'MyStuff/videos/sky_dev.mp4', backText: "This is a prototype for an architecture company website. It's still a work in progress but my favourite thing about it is the moving image carousel!" },
+                { mediaType: 'video', src: 'MyStuff/videos/figma_res.mp4', backText: "This was my first ever Figma project. It's basically a prototype app for tourists looking for restaurants, tourist attractions and hotels in a city." },
                 { mediaType: 'image', src: 'MyStuff/images/androidlog1.png', backText: 'This simple form was made with android studio' },
                 { mediaType: 'video', src: 'MyStuff/videos/splash_screen .mp4', backText: "This is just a simple splash screen animation with moving gradient in the background and glassmorphism features." },
                 { mediaType: 'image', src: 'MyStuff/images/bmi_home.png', backText: "This was also created with android studio." },
@@ -16,28 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 { mediaType: 'image', src: 'MyStuff/images/bmi_result.png', backText: "This is the result screen for the BMI calculator app." },
                 { mediaType: 'image', src: 'MyStuff/images/flutsplash1.png', backText: 'An app static splash screen.' },
                 { mediaType: 'image', src: 'MyStuff/images/flutter1.png', backText: 'This was a very simple login page i made for a food app.' },
-                { 
-                    mediaType: 'group',
-                    backText: 'A sign-in page design for a mobile application.',
-                    items: [
-                        { mediaType: 'image', src: 'MyStuff/images/flutlog1.png' },
-                        { mediaType: 'image', src: 'MyStuff/images/flutlog2.png' }
-                    ]
-                }
+                { mediaType: 'image', 
+                  src: 'MyStuff/images/flutlog1.png', 
+                  backText: 'A sign-in page design for a mobile application.' },
+                { mediaType: 'image', 
+                  src: 'MyStuff/images/flutlog2.png', 
+                  backText: 'An sign-Up page design.' }
             ]
         }, // This comma was missing
         'web-development': {
             title: 'Web Development',
             media: [
-                { mediaType: 'video', src: 'MyStuff/videos/burger_web.mp4', backText: 'This a simple website i made using powerpoint presentation. I simply took the frames from it and used it to create teh scrolling effect of the burger splitting to its ingredients. It was also a chnace for me to experiment with some button animations.' },
+                { mediaType: 'video', src: 'MyStuff/videos/burger_web.mp4', backText: 'This a simple website i made using powerpoint presentation. I simply took the frames from it and used it to create the scrolling effect of the burger splitting to its ingredients.' },
                 { mediaType: 'video', src: 'MyStuff/videos/drowsy1log.mp4', backText: 'This is one of the most simple dahsboards i have ever created.' },
-                { mediaType: 'video', src: 'MyStuff/videos/she_builds.mp4', backText: 'I created a club for girls who wanted to learn anything related to coding (like web development) and other tech related stuff and this was a simple demo i built to show the ladies during one session.' },
+                { mediaType: 'video', src: 'MyStuff/videos/she_builds.mp4', backText: 'I created a club for girls who wanted to learn anything related to coding and other tech and this was a simple demo i built during one of our sessions.' },
             ]
         },
         'powerpoint-animations': {
             title: 'Powerpoint and Animations',
             media: [
-                { mediaType: 'video', src: 'MyStuff/videos/burgerppt.mp4', backText: "This is a simple burger i created using powerpoint. It's been converted to a video here." },
+                { mediaType: 'video', src: 'MyStuff/videos/burgerppt.mp4', backText: "This is a simple burger animation i created using powerpoint." },
                 { mediaType: 'video', src: 'MyStuff/videos/pptfg.mp4', backText: 'This is another powerpoint animation for a presentation.' },
                 { mediaType: 'video', src: 'MyStuff/videos/pptsky.mp4', backText: 'A very simple powerpoint animation.' },
                 { mediaType: 'video', src: 'MyStuff/videos/Animation.mp4', backText: 'A logo animation (This was done using canva).' },
@@ -49,15 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 { mediaType: 'image', src: 'MyStuff/images/aesthetic_logo.png', backText: 'This was a random design i made cos...i was bored.' },
                 { mediaType: 'image', src: 'MyStuff/images/book_cover1.png', backText: 'A book cover design. (Yes I write too)' },
                 { mediaType: 'image', src: 'MyStuff/images/book_cover2.png', backText: 'Another book cover design.' },
-                { mediaType: 'image', src: 'MyStuff/images/college_logo.png', backText: 'A simple logo i created for an app for students to find affordable meals around them.' },
+                { mediaType: 'image', src: 'MyStuff/images/college_logo.png', backText: 'A simple logo i created for a food app.' },
                 { mediaType: 'image', src: 'MyStuff/images/design1.png', backText: 'This was my first ever design i created almost 4 years ago for a t-shirt brand idea.' },
                 { mediaType: 'image', src: 'MyStuff/images/design2.png', backText: 'Another design for the t-shirt brand idea.' },
-                { mediaType: 'image', src: 'MyStuff/images/mine_logo.png', backText: 'This was my first ever logo i created. I wanted to create brand for myself. I still like despite it being 3 years old.' },
-                { mediaType: 'image', src: 'MyStuff/images/mech1.png', backText: 'The logo for an app. I used it in one of my apps (check it out in my Figma Projects).' },
+                { mediaType: 'image', src: 'MyStuff/images/mine_logo.png', backText: 'This was my first ever logo i created. I still like despite it being 3 years old.' },
+                { mediaType: 'image', src: 'MyStuff/images/mech1.png', backText: 'The logo for an app. (Used in a Figma project)' },
                 { mediaType: 'image', src: 'MyStuff/images/mech2.png', backText: 'An alternate logo design for the same app.' },
                 { mediaType: 'image', src: 'MyStuff/images/graphic design.png', backText: "A poster I made for a friend's assignment, using the word 'Reprieve'." },
                 { mediaType: 'image', src: 'MyStuff/images/graphic design2.png', backText: "Another poster for the same assignment, using the word 'Dissipate'." },
-                { mediaType: 'image', src: 'MyStuff/images/autocad.png', backText: 'this was random design i built using autocad. Inspo was from pinterest.' }
+                { mediaType: 'image', src: 'MyStuff/images/autocad.png', backText: 'This was random design i built using autocad. Inspo was from pinterest.' }
             ]
         }
     };

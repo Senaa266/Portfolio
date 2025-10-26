@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageColumn = document.querySelector('.image-column');
     let autoScrollInterval;
     let currentCategoryIndex = 0;
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
     const categories = Array.from(menuItems).map(item => item.dataset.category);
 
     // Function to activate a category
@@ -47,9 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuItems.forEach(item => item.classList.remove('active'));
         targetMenuItem.classList.add('active');
 
-        // Move the entire image column to bring the target group into view
-        const offsetTop = targetImageGroup.offsetTop;
-        imageColumn.style.transform = `translateY(-${offsetTop}px)`;
+        if (!isMobile) {
+            // On desktop, move the entire image column to bring the target group into view
+            const offsetTop = targetImageGroup.offsetTop;
+            imageColumn.style.transform = `translateY(-${offsetTop}px)`;
+        }
     }
 
     // Function to handle the full auto-scroll sequence
@@ -60,19 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.querySelector(`#${category} .image-carousel`);
         if (!carousel) return;
 
-        // Reset to first image
-        carousel.style.transform = 'translateX(0)';
+        if (!isMobile) {
+            // Reset to first image
+            carousel.style.transform = 'translateX(0)';
 
-        // After a delay, slide to the second image
-        setTimeout(() => {
-            carousel.style.transform = 'translateX(-50%)';
-        }, 2500); // Wait 2.5s on the first image
+            // After a delay, slide to the second image
+            setTimeout(() => {
+                carousel.style.transform = 'translateX(-50%)';
+            }, 2500); // Wait 2.5s on the first image
+        }
 
-        // After another delay, move to the next category
-        setTimeout(() => {
-            currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
-            runAutoScrollSequence();
-        }, 5000); // Total time for this category is 5s (2.5s + 2.5s)
+        // After another delay, move to the next category (Desktop only)
+        if (!isMobile) {
+            setTimeout(() => {
+                currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+                runAutoScrollSequence();
+            }, 5000);
+        }
     }
 
     // Function to start the automatic scrolling
@@ -84,16 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle user clicks on menu items
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Stop the automatic scrolling when the user interacts
-            clearTimeout(autoScrollInterval); // We are using timeouts now
-            
             const category = item.dataset.category;
-            currentCategoryIndex = categories.indexOf(category);
-            activateCategory(category);
 
-            // Optional: Reset carousel to first image on click
-            const carousel = document.querySelector(`#${category} .image-carousel`);
-            if (carousel) carousel.style.transform = 'translateX(0)';
+            if (isMobile) {
+                // On mobile, a single tap navigates to the detail page.
+                window.location.href = `project-detail.html?category=${category}`;
+            } else {
+                // On desktop, a single click controls the preview gallery.
+                clearTimeout(autoScrollInterval); // We are using timeouts now
+                currentCategoryIndex = categories.indexOf(category);
+                activateCategory(category);
+                const carousel = document.querySelector(`#${category} .image-carousel`);
+                if (carousel) carousel.style.transform = 'translateX(0)';
+            }
         });
 
         // Add double-click event to navigate to detail page
@@ -103,8 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Start the show!
-    startAutoScroll(); // Start the automatic animation
+    // Start the show, but only on desktop!
+    if (!isMobile) {
+        startAutoScroll(); // Start the automatic animation
+    }
 
     // --- 3. CUSTOM CURSOR DOT ---
     const heroSection = document.querySelector('.hero-section');
