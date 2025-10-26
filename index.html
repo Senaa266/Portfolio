@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- A nice, stylish font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Syne:wght@400;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-logo">Sena</div>
+        <ul>
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#work" class="nav-link">Work</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="hero-section">
+        <!-- This will be our custom cursor dot -->
+        <div class="custom-cursor"></div>
+
+        <div class="hero-content">
+            <div class="hero-headline">
+                <p class="hero-intro">hi, my name is</p>
+                <h1 class="hero-name">Sena Belinda</h1>
+            </div>
+            <p class="hero-tagline">welcome to my space</p>
+        </div>
+
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>Graphic Design</span>
+                <span class="bullet">&bull;</span>
+                <span>Animation</span>
+                <span class="bullet">&bull;</span>
+                <span>Frontend Development</span>
+                <span class="bullet">&bull;</span>
+                <span>Figma</span>
+                <span class="bullet">&bull;</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>Graphic Design</span>
+                <span class="bullet">&bull;</span>
+                <span>Animation</span>
+                <span class="bullet">&bull;</span>
+                <span>Frontend Development</span>
+                <span class="bullet">&bull;</span>
+                <span>Figma</span>
+                <span class="bullet">&bull;</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ABOUT SECTION -->
+        <section id="about" class="page-section" data-nav-theme="dark">
+            <div class="page-content-wrapper">
+                <div class="about-layout">
+                    <!-- Card 1: About Me (Flippable) -->
+                    <div class="about-column">
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h2 class="about-title">About Me</h2>
+                                    <p>Hi! I’m Sena, an enthusiastic designer with a deep love for creativity in all its forms. Whether it’s a website, poster, book cover, or animation, I find joy in bringing ideas to life through design.</p>
+                                    <p>Ever since I was a child, I’ve loved creating patterns and experimenting with colors — I actually thought I’d become a fashion designer one day. But when I discovered computers, everything changed.</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3 class="card-back-title">What I do:</h3>
+                                    <ul>
+                                        <li>Web Development</li>
+                                        <li>Powerpoint and Animations</li>
+                                        <li>Graphic Design</li>
+                                        <li>Front End Development (Figma)</li>
+                                        <li>Mobile App Development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-prompt">(tap or hover for more info)</p>
+                    </div>
+                    <!-- Card 2: My Process (Static) -->
+                    <div class="about-column">
+                        <div class="card">
+                            <div class="card-front">
+                                <h2 class="about-title">My Process</h2>
+                                <p>Before I start designing anything — whether it’s a website or a simple graphic — I always begin with a rough sketch. I map out the layout, color ideas, and animations on paper first. Once that vision feels right, I move to the digital stage, where the real magic begins.</p>
+                                <p>For me, design is like a puzzle: once you know what you want to create, everything falls into place.</p>
+                                <!-- Animated Download Button -->
+                                <div class="download-button-wrapper">
+                                    <label class="label" for="download-checkbox" data-file="path/to/your-resume.pdf">
+                                    <label class="label" for="download-checkbox" data-file="Sena_Belinda_Resume.pdf">
+                                        <input type="checkbox" class="input" id="download-checkbox">
+                                        <div class="circle">
+                                            <svg class="icon" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M421.883,298.355c-11.348-8.211-27.135-5.332-35.346,6.016l-79.957,110.13V15.711C306.58,7.033,299.547,0,290.869,0h-69.738   c-8.678,0-15.711,7.033-15.711,15.711v398.79l-79.957-110.13c-8.211-11.348-24-14.227-35.346-6.016   c-11.348,8.211-14.227,24-6.016,35.346l138.311,173.164c4.105,5.922,10.908,9.135,17.994,9.135h0.013   c7.086,0,13.875-3.213,17.98-9.135l138.311-173.164C436.11,322.355,433.231,306.566,421.883,298.355z"></path></svg>
+                                            <div class="square"></div>
+                                        </div>
+                                        <span class="title">Download CV</span>
+                                        <span class="title">Installed</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK SECTION -->
+        <section id="work" class="page-section work-section">
+            <div class="page-content-wrapper">
+                <div class="work-layout">
+                    <!-- Left side: The menu -->
+                    <div class="work-menu">
+                        <ul>
+                            <h3 class="work-menu-title">take a look at some of my projects</h3>
+                            <p class="work-menu-prompt">(double click/tap to view gallery)</p>
+                            <li class="active" data-category="figma-projects">Figma Projects</li>
+                            <li data-category="web-development">Web Development</li>
+                            <li data-category="powerpoint-animations">Powerpoint and Animations</li>
+                            <li data-category="graphic-design-logos">Graphic Design and Logos</li>
+                        </ul>
+                    </div>
+                    <!-- Right side: The scrolling image gallery -->
+                    <div class="work-gallery">
+                        <div class="image-column">
+                            <!-- Group 1: Figma Projects -->
+                            <div class="image-group" id="figma-projects">
+                                <div class="image-carousel">
+                                    <video src="MyStuff/videos/figma_res.mp4" alt="Figma Project 1" muted loop autoplay playsinline></video>
+                                    <video src="MyStuff/videos/sky_dev.mp4" alt="Figma Project 2" muted loop autoplay playsinline></video>
+                                </div>
+                            </div>
+                            <!-- Group 2: Web Development -->
+                            <div class="image-group" id="web-development">
+                                <div class="image-carousel">
+                                    <video src="MyStuff/videos/she_builds.mp4" alt="Website 1" muted loop autoplay playsinline></video>
+                                    <video src="MyStuff/videos/burger_web.mp4" alt="Website 2" muted loop autoplay playsinline></video>
+                                </div>
+                            </div>
+                            <!-- Group 3: Powerpoint and Animations -->
+                            <div class="image-group" id="powerpoint-animations">
+                                <div class="image-carousel">
+                                    <video src="MyStuff/videos/burgerppt.mp4" alt="Powerpoint 1" muted loop autoplay playsinline></video>
+                                    <video src="MyStuff/videos/Animation.mp4" alt="Animation 1" muted loop autoplay playsinline></video>
+                                </div>
+                            </div>
+                            <!-- Group 4: Graphic Design and Logos -->
+                            <div class="image-group" id="graphic-design-logos">
+                                <div class="image-carousel">
+                                    <img src="MyStuff/images/book_cover1.png" alt="Graphic Design 1"></img>
+                                    <img src="MyStuff/images/design2.png" alt="Logo 1"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="page-section">
+            <div class="contact-container">
+                <h2>Got an idea? Let’s make it happen!</h2>
+                <p>I’m always excited to collaborate on creative projects — from web design and animations to app interfaces and visuals. Drop me a message; I’d love to chat and bring your ideas to life!</p>
+                
+                <div class="contact-card">
+                    <!-- Email -->
+                    <a href="mailto:senabelinda14@gmail.com" data-tooltip="Send Mail">
+                        <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path></svg>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/233553100521" target="_blank" data-tooltip="WhatsApp">
+                        <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/belinda-yekple-848306313" target="_blank" data-tooltip="My LinkedIn">
+                        <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/Senaa266" target="_blank" data-tooltip="Github">
+                        <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

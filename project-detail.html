@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Syne:wght@400;800&display=swap" rel="stylesheet">
+</head>
+<body class="detail-page-body">
+
+    <header class="detail-header">
+        <a href="index.html#work" class="back-button">&larr; Back to Projects</a>
+        <h1 id="project-title"></h1>
+    </header>
+
+    <main class="detail-content">
+        <div class="media-feed">
+            <!-- All images and videos will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Video Lightbox Modal -->
+    <div id="video-lightbox" class="lightbox-hidden">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <!-- Video player will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="lightbox-hidden">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <!-- Clicked image will be inserted here -->
+        </div>
+    </div>
+
+    <script src="project-detail.js"></script>
+</body>
+</html>
