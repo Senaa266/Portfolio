@@ -867,7 +867,7 @@ body {
 /* --- Marquee Banner --- */
 .marquee {
     position: absolute;
-    bottom: 4rem; /* Moved the banner further up as requested */
+    bottom: 4rem; /* Moved banner higher on the hero section */
     width: 100%;
     background-color: var(--text-color); /* Black background */
     color: var(--bg-color); /* White text */
@@ -891,6 +891,17 @@ body {
 @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
+}
+
+/* --- Footer Marquee --- */
+.footer-marquee {
+    background-color: var(--bg-color); /* Match the contact section background */
+    padding: 3rem 0; /* Add some space around the footer marquee */
+}
+.footer-marquee .marquee {
+    position: static; /* The footer marquee is not absolutely positioned */
+    background-color: transparent; /* Remove the black bar */
+    color: var(--text-color);      /* Make the text black */
 }
 
 .contact-container {
