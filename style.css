@@ -293,7 +293,7 @@ body {
 .card-prompt {
     text-align: center;
     color: var(--bg-color);
-    opacity: 0.6;
+    opacity: 0.9; /* Increased opacity for better readability */
     font-size: 0.9rem;
     margin-top: 1.5rem;
 }

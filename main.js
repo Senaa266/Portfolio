@@ -32,60 +32,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. INTERACTIVE WORK GALLERY ---
     const menuItems = document.querySelectorAll('.work-menu li');
     const imageColumn = document.querySelector('.image-column');
-    let autoScrollInterval;
+    let autoScrollTimeout;
     let currentCategoryIndex = 0;
     const isMobile = window.matchMedia("(max-width: 900px)").matches;
     const categories = Array.from(menuItems).map(item => item.dataset.category);
 
-    // Function to activate a category
-    function activateCategory(category) {
-        // Find the target image group and menu item
+    // A single function to handle activating a category and its animations
+    function showCategory(category, isAuto = false) {
+        const targetMenuItem = document.querySelector(`.work-menu li[data-category="${category}"]`);
         const targetImageGroup = document.getElementById(category);
-        const targetMenuItem = document.querySelector(`[data-category="${category}"]`);
-        if (!targetImageGroup || !targetMenuItem) return;
-
-        // Update the active state in the menu
+        const carousel = targetImageGroup ? targetImageGroup.querySelector('.image-carousel') : null;
+        if (!targetMenuItem || !targetImageGroup || !carousel) return;
+ 
+        // 1. Update menu
         menuItems.forEach(item => item.classList.remove('active'));
         targetMenuItem.classList.add('active');
-
-        if (!isMobile) {
-            // On desktop, move the entire image column to bring the target group into view
-            const offsetTop = targetImageGroup.offsetTop;
-            imageColumn.style.transform = `translateY(-${offsetTop}px)`;
-        }
+ 
+        // 2. Scroll main column into view
+        imageColumn.style.transform = `translateY(-${targetImageGroup.offsetTop}px)`;
+ 
+        // 3. Handle carousel animation
+        carousel.style.transition = 'none'; // Reset instantly
+        carousel.style.transform = 'translateX(0)';
+        
+        // Use a timeout to allow the instant transform to apply before transitioning again
+        setTimeout(() => {
+            carousel.style.transition = 'transform 0.6s ease-in-out';
+            carousel.style.transform = 'translateX(-50%)';
+        }, isAuto ? 2500 : 100); // Shorter delay for manual click
     }
-
-    // Function to handle the full auto-scroll sequence
-    function runAutoScrollSequence() {
+ 
+    // Function to run the automatic scrolling sequence.
+    // Using recursive setTimeout is better than setInterval, as it waits for the previous animation cycle to finish.
+    function startAutoScroll() {
         const category = categories[currentCategoryIndex];
-        activateCategory(category);
-
-        const carousel = document.querySelector(`#${category} .image-carousel`);
-        if (!carousel) return;
-
-        if (!isMobile) {
-            // Reset to first image
-            carousel.style.transform = 'translateX(0)';
-
-            // After a delay, slide to the second image
-            setTimeout(() => {
-                carousel.style.transform = 'translateX(-50%)';
-            }, 2500); // Wait 2.5s on the first image
-        }
-
-        // After another delay, move to the next category (Desktop only)
-        if (!isMobile) {
-            setTimeout(() => {
-                currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
-                runAutoScrollSequence();
-            }, 5000);
-        }
-    }
-
-    // Function to start the automatic scrolling
-    function startAutoScroll() { 
-        clearInterval(autoScrollInterval); // Clear any existing interval
-        runAutoScrollSequence(); // Start the sequence
+        showCategory(category, true);
+        currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+        autoScrollTimeout = setTimeout(startAutoScroll, 5000); // 2.5s on first image, 2.5s on second
     }
 
     // Handle user clicks on menu items
@@ -98,11 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = `project-detail.html?category=${category}`;
             } else {
                 // On desktop, a single click controls the preview gallery.
-                clearTimeout(autoScrollInterval); // We are using timeouts now
+                clearTimeout(autoScrollTimeout); // Stop the auto-scroll
                 currentCategoryIndex = categories.indexOf(category);
-                activateCategory(category);
-                const carousel = document.querySelector(`#${category} .image-carousel`);
-                if (carousel) carousel.style.transform = 'translateX(0)';
+                showCategory(category, false);
             }
         });
 
@@ -115,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the show, but only on desktop!
     if (!isMobile) {
-        startAutoScroll(); // Start the automatic animation
+        startAutoScroll();
     }
 
     // --- 3. CUSTOM CURSOR DOT ---
